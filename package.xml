@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>elel329_image_inverter</name>
+  <version>0.0.1</version>
+  <description>ELEL329 ROS assignment image inverter</description>
+  <maintainer email="jebarria@alumnos.uach.cl">Jorge Barría</maintainer>
+  <license>BSD</license>
+  <!-- Url tags are optional, but multiple are allowed, one per tag -->
+  <!-- Optional attribute type can be: website, bugtracker, or repository -->
+  <!-- Example: -->
+  <!-- <url type="website">http://wiki.ros.org/elel329_image_inverter</url> -->
+  <author email="jebarria@alumnos.uach.cl">Jorge Barría</author>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>cv_bridge</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_export_depend>cv_bridge</build_export_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>rospy</exec_depend>
+</package>
