@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>elel329_image_inverter</name>
-  <version>0.0.1</version>
+  <version>0.1.0</version>
   <description>ELEL329 ROS assignment image inverter</description>
   <maintainer email="jebarria@alumnos.uach.cl">Jorge Barría</maintainer>
   <license>BSD</license>

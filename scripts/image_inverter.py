@@ -12,9 +12,9 @@ frame_counter = 0
 
 def on_new_image(image):
     global frame_counter
-    cv_image = bridge.imgmsg_to_cv2(image, desired_encoding='passthrough')
+    cv_image = bridge.imgmsg_to_cv2(image, desired_encoding="bgr8")
     cv_image = cv2.flip(cv_image, 0)  # The image is now vertically flipped.
-    image_msg = bridge.cv2_to_imgmsg(cv_image, encoding="passthrough")
+    image_msg = bridge.cv2_to_imgmsg(cv_image, encoding="bgr8")
     publisher.publish(image_msg)
     frame_counter += 1
     rospy.loginfo_throttle(1, f"Number of frames processed: {frame_counter}")
