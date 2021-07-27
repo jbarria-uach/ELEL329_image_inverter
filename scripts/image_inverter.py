@@ -1,15 +1,23 @@
 #!/usr/bin/env python
+import cv2
 import rospy
+from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
 
+bridge = CvBridge()
+publisher = rospy.Publisher('inverted_rpi_usb_cam/image_raw', Image,
+                            queue_size=20)
 frame_counter = 0
 
 
 def on_new_image(image):
     global frame_counter
+    cv_image = bridge.imgmsg_to_cv2(image, desired_encoding='passthrough')
+    cv_image = cv2.flip(cv_image, 0)  # The image is now vertically flipped.
+    image_msg = bridge.cv2_to_imgmsg(cv_image, encoding="passthrough")
+    publisher.publish(image_msg)
     frame_counter += 1
-    rospy.loginfo_throttle(1, f"New image received of type: {type(image)}, "
-                              f"Received frames: {frame_counter}")
+    rospy.loginfo_throttle(1, f"Number of frames processed: {frame_counter}")
 
 
 def process_frames():
